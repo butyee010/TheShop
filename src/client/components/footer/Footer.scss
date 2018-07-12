@@ -1,0 +1,17 @@
+@import '../../static/theme/index';
+
+.Footer {
+  background-color: #a0a2a073;
+  height: 60px;
+  color: black;
+  border-bottom: 2px solid #a0a2a073;
+  border-top: 2px solid #a0a2a073;
+
+  &:before {
+    margin-top: 10px;
+  }
+
+  &:after {
+    margin-top: 10px;
+}
+}
