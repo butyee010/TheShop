@@ -7,7 +7,8 @@ module.exports = merge(base, {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './src/client/index.js'
+    './src/client/index.js',
+    'babel-polyfill'
   ],
   devServer: {
     open: true

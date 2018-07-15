@@ -1,13 +1,13 @@
-import axios from 'axios';
-import { extend } from './ObjectUtils';
+import axios from "axios";
+import { extend } from "./ObjectUtils";
 
 const defaults = {
   baseURL: "http://localhost:3000",
   timeout: 10000,
   headers: { "X-Requested-With": "XMLHttpRequest" },
-  methods: "post",
+  method: "post",
   url: "",
-  async: true,
+  async: false,
   data: {},
   onSuccess: function() {},
   onError: function() {}
@@ -15,7 +15,6 @@ const defaults = {
 
 export default function callApi(options) {
   let settings = extend(defaults, options);
-  debugger;
   if (settings.async) {
     callAsyncApi(settings);
   } else {
@@ -24,6 +23,7 @@ export default function callApi(options) {
 }
 
 function callSyncApi(settings) {
+  console.log(settings);
   axios(settings)
     .then(function(response) {
       onSuccess(response, settings);
@@ -34,27 +34,20 @@ function callSyncApi(settings) {
 }
 
 async function callAsyncApi(settings) {
-    try {
-        const response = await resolveAfter2Seconds();
-        onSuccess(response, settings);
-    }
-    catch(error) {
-        onError(error, settings);
-    }
-}
-
-function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('resolved');
-      }, 2000);
-    });
+  try {
+    console.log(settings);
+    let response = await axios(settings);
+    onSuccess(response, settings);
+  } catch (error) {
+    onError(error, settings);
   }
+}
 
 function onSuccess(response, settings) {
   settings.onSuccess(response);
 }
 
 function onError(error, settings) {
+  console.log("error: "+error);
   settings.onError(error);
 }

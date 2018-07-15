@@ -5,9 +5,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "start http://localhost:3000 && nodemon index.js --exec babel-node --watch src/server --watch build",
-    "build": "rmdir dist /s /q && npm run build:client && npm run build:server",
+    "build": "del dist /S /Q && npm run build:client && npm run build:server",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.prod.babel.js",
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.babel.js",
+    "build-start": "del dist /S /Q && npm run build:client && npm run build:server && npm start",
     "start": "cross-env NODE_ENV=production node dist/server-bundle.js",
     "test": "jest"
   },
@@ -43,6 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "bulma": "^0.7.1",
     "bulma-start": "0.0.2",
@@ -54,6 +56,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "redis": "^2.8.0",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
     "webpack": "^4.7.0",

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './Menuheader.scss';
+import './MenuHeader.scss';
 
 export default class Menuheader extends Component {
   render() {
     return (
-        <div className="Menuheader">
-          <div>Menu</div>
-          {/* <div className="box">aaaaaaaaaaaaaaaa</div> */}
+        <div className="MenuHeader">
+          <button className="btn-normal" onClick={function(){}}>Home</button>
+          <button className="btn-normal" onClick={function(){}}>Function</button>
         </div>
     );
   }

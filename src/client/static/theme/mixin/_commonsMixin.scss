@@ -1,0 +1,9 @@
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin paddingHtml() {
+  padding: 10px 0 0 10px;
+}

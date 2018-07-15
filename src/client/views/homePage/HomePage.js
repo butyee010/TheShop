@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import './HomePage.scss';
+import React, { Component } from "react";
+//theme
+import "./HomePage.scss";
 //Form
-import InputForm from '../../forms/input/InputForm';
-import ButtonForm from '../../forms/button/ButtonForm';
+import InputForm from "../../forms/input/InputForm";
+import ButtonForm from "../../forms/button/ButtonForm";
 
 //Components
-import HeaderNav from '../../components/headerNav/HeaderNav';
-import MenuHeader from '../../components/menuHeader/MenuHeader';
-import Footer from '../../components/footer/Footer';
+import HeaderNav from "../../components/headerNav/HeaderNav";
+import MenuHeader from "../../components/menuHeader/MenuHeader";
+import Footer from "../../components/footer/Footer";
 
-import { Field, reduxForm } from 'redux-form';
-import { email } from '../../commons/Validator';
+import { Field, reduxForm } from "redux-form";
+import { email } from "../../commons/Validator";
 
-import AxiosUtils from '../../commons/AxiosUtils';
+import AxiosUtils from "../../commons/AxiosUtils";
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
@@ -56,8 +57,8 @@ export default class HomePage extends Component {
 
   getStart() {
     AxiosUtils({
-      url: '/api/b',
-      methods: 'post',
+      url: "/api/b",
+      methods: "post",
       data: {
         firstName: "Fred",
         lastName: "Flintstone"
@@ -68,34 +69,7 @@ export default class HomePage extends Component {
       onError: function() {
         console.log("response error");
       }
-    })
-    ;
-    /* await axios
-      .post("/api/b", {
-        firstName: "Fred",
-        lastName: "Flintstone"
-      })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-    axios.post({
-        method: 'post',
-        url: '/api/b',
-        data: {
-          firstName: "Fred",
-          lastName: "Flintstone"
-        }
-      })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      }); */
+    });
   }
 
   handleSubmit() {
@@ -112,12 +86,14 @@ export default class HomePage extends Component {
       <div className="HomePage">
         <HeaderNav />
         <MenuHeader />
-
-        <ContactForm onSubmit={this.submit} />
-
-        <InputForm name="userName" type="text" className="" value="" placeholder="User Name" />
-        <ButtonForm name="getStart" text="Get Start" onClick={this.getStart} />
-        <button onClick={this.getStart.bind(this)}>Submit</button>
+        <div className="contents">
+          <ContactForm onSubmit={this.submit} />
+          <InputForm name="userName" type="text" className="" value="" placeholder="User Name" />
+          <ButtonForm name="getStart" text="Get Start" onClick={this.getStart} />
+          <button className="" onClick={this.getStart.bind(this)}>
+            Submit
+          </button>
+        </div>
         <Footer />
       </div>
     );
