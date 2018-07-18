@@ -53,6 +53,7 @@ if (!isProd) {
   }));
 }
 
+const firebaseConfig = require('./firebase/Config');
 
 router.get('/', function(req, res) {
   res.json({ message: 'hooray! welcome to our api!' });   
@@ -64,6 +65,7 @@ router.post('/a', function(req, res) {
   res.json({ message: 'aaaaaaaaaa! welcome to our api!' });   
 });
 router.post('/b', function(req, res) {
+  firebaseConfig.writeUserData("test", "patipon", "test@gmail.com");
   res.json({ message: 'bbbbbbbbbbb! welcome to our api!' });   
 });
 app.use('/api', router);

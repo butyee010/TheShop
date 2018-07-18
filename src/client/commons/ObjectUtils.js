@@ -21,12 +21,10 @@ export let extend = function ( defaults, options ) {
     return extended;
 };
 
-// export function extend(target) {
-//     var sources = [].slice.call(arguments, 1);
-//     sources.forEach(function (source) {
-//         for (var prop in source) {
-//             target[prop] = source[prop];
-//         }
-//     });
-//     return target;
-// }
+let utils = {
+    varIsNotBlank: function(v) {
+        v != null || v != undefined || v != "" ? true : false;
+    } 
+};
+
+export default utils;
