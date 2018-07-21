@@ -8,6 +8,10 @@ export default class Shop extends Component {
   }
 
   render() {
-    return <div className="Shop" />;
+  return (
+          <div className="Shop">
+            SHOP
+          </div>
+          );
   }
 }

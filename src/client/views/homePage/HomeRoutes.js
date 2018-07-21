@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import HomePage from '../views/homePage/HomePage';
 import Shop from '../views/shop/Shop';
 
@@ -15,3 +15,4 @@ export default () => {
     </Router>
   );
 };
+ */
