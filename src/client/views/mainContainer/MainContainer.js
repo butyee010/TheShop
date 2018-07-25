@@ -1,30 +1,24 @@
 import React, { Component } from "react";
 import "./MainContainer.scss";
-import ObjectUtils from '../../commons/ObjectUtils';
+//components
+import Primary from "../../components/primary/Primary";
+import Secondary from "../../components/secondary/Secondary";
+import HeaderNav from "../../components/headerNav/HeaderNav";
+import MenuHeader from "../../components/menuHeader/MenuHeader";
+import Footer from "../../components/footer/Footer";
 
 export default class MainContainer extends Component {
-
-
-secondary() {
-  return (
-    <div>
-      <nav>
-        <a href="/html/">HTML</a> |
-        <a href="/css/">CSS</a> |
-        <a href="/js/">JavaScript</a> |
-        <a href="/jquery/">jQuery</a>
-      </nav>
-    </div>
-  );
-}
-
   render() {
-    const {primary, secondary, children} = this.props;
     return (
-            <div className="MainContainer">
-                <div id="primary">{primary}</div>
-                <div id="secondary">{ObjectUtils.varIsNotBlank(secondary) ? secondary : this.secondary()}</div>
-            </div>
-           );
+      <div>
+        <HeaderNav />
+        <MenuHeader />
+        <div className="MainContainer">
+          <Primary />
+          <Secondary />
+        </div>
+        <Footer />
+      </div>
+    );
   }
 }

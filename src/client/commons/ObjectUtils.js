@@ -23,7 +23,7 @@ export let extend = function ( defaults, options ) {
 
 let utils = {
     varIsNotBlank: function(v) {
-        return v != null || v != undefined || v != "" ? true : false;
+        return v != null && v != undefined && v != "" ? true : false;
     } 
 };
 

@@ -7,6 +7,7 @@ export default class Footer extends Component {
     const { text } = this.props;
     return (
         <div className="Footer">
+          <label>This Footer</label>
           <label>{text}</label>
         </div>
     );

@@ -17,6 +17,8 @@ import AxiosUtils from "../../commons/AxiosUtils";
 import Clock from "../../components/clock/Clock";
 import MainContainer from "../mainContainer/MainContainer";
 
+import Test from "../../components/test"; 
+
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
     <label>{label}</label>
@@ -50,6 +52,18 @@ let ContactForm = props => {
 ContactForm = reduxForm({
   form: "contact"
 })(ContactForm);
+
+/* const a = (
+  <div className="contents">
+    <ContactForm onSubmit={this.submit} />
+    <Clock />
+    <InputForm name="userName" type="text" className="" value="" placeholder="User Name" />
+    <ButtonForm name="getStart" text="Get Start" onClick={this.getStart} />
+    <button className="" onClick={this.getStart.bind(this)}>
+      Submit
+    </button>
+  </div>
+); */
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -99,10 +113,8 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="HomePage">
-        <HeaderNav />
-        <MenuHeader />
-        <MainContainer primary={this.primaryContent()} secondary={<div>123</div>}/>
-        <Footer />
+        Home Page
+        {this.primaryContent()}
       </div>
     );
   }
