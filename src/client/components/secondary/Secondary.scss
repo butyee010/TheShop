@@ -1,1 +1,13 @@
 @import '../../static/theme/index';
+
+.secondary {
+    bottom: 0px;
+    font-size: 13px;
+    height: 75vh;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 250px;
+    background-color: $background-color;
+    overflow: auto;
+}

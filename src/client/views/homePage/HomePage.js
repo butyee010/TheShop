@@ -17,8 +17,6 @@ import AxiosUtils from "../../commons/AxiosUtils";
 import Clock from "../../components/clock/Clock";
 import MainContainer from "../mainContainer/MainContainer";
 
-import Test from "../../components/test"; 
-
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
     <label>{label}</label>
@@ -96,25 +94,16 @@ export default class HomePage extends Component {
     console.log(values);
   }
 
-  primaryContent() {
-    return (
-      <div className="contents">
-        <ContactForm onSubmit={this.submit} />
-        <Clock />
-        <InputForm name="userName" type="text" className="" value="" placeholder="User Name" />
-        <ButtonForm name="getStart" text="Get Start" onClick={this.getStart} />
-        <button className="" onClick={this.getStart.bind(this)}>
-          Submit
-        </button>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div className="HomePage">
-        Home Page
-        {this.primaryContent()}
+          <ContactForm onSubmit={this.submit} />
+          <Clock />
+          <InputForm name="userName" type="text" className="" value="" placeholder="User Name" />
+          <ButtonForm name="getStart" text="Get Start" onClick={this.getStart} />
+          <button className="" onClick={this.getStart.bind(this)}>
+            Submit
+          </button>
       </div>
     );
   }
